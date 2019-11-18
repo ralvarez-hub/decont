@@ -1,20 +1,21 @@
-#Download all the files specified in data/filenames
-for url in $(<list_of_urls>) #TODO
+#Download all the files specified in data/urls
+
+for url in $(cat /home/user16/adv-shell-final/decont/data/urls)
 do
-    bash scripts/download.sh $url data
+    bash /home/user16/adv-shell-final/decont/scripts/download.sh $url "/home/user16/adv-shell-final/decont/data"
 done
 
 # Download the contaminants fasta file, and uncompress it
-bash scripts/download.sh <contaminants_url> res yes #TODO
+#bash scripts/download.sh <contaminants_url> res yes #TODO
 
 # Index the contaminants file
-bash scripts/index.sh res/contaminants.fasta res/contaminants_idx
+#bash scripts/index.sh res/contaminants.fasta res/contaminants_idx
 
 # Merge the samples into a single file
-for sid in $(<list_of_sample_ids) #TODO
-do
-    bash scripts/merge_fastqs.sh data out/merged $sid
-done
+#for sid in $(<list_of_sample_ids) #TODO
+#do
+#    bash scripts/merge_fastqs.sh data out/merged $sid
+#done
 
 # TODO: run cutadapt for all merged files
 # cutadapt -m 18 -a TGGAATTCTCGGGTGCCAAGG --discard-untrimmed -o <trimmed_file> <input_file> > <log_file>
