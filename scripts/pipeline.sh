@@ -43,7 +43,6 @@ done
 # - cutadapt: Reads with adapters and total basepairs
 # - star: Percentages of uniquely mapped reads, reads mapped to multiple loci, and to too many loci
 
-touch log/pipeline.log
 for sid in $(ls log/cutadapt | cut -d"." -f1)
 do
     echo "$sid" >> log/pipeline.log
